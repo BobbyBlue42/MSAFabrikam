@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Fabrikam.Menu">
+    <ContentPage.Content>
+        <ScrollView
+            BackgroundColor="#f2e5cf">
+            <StackLayout>
+                <!-- Appetisers -->
+                <StackLayout
+                    x:Name="AppetiserBox"
+                    Spacing="0"
+                    Margin="5, 0"
+                    Padding="0">
+                    <Button
+                        Text="Appetisers"
+                        HorizontalOptions="FillAndExpand"
+                        HeightRequest="75"
+                        BackgroundColor="#ca973f"
+                        Margin="0"
+                        Clicked="AppetisersButton_OnClicked"/>
+                    <ListView
+                        HasUnevenRows="True"
+                        x:Name="AppetiserList"
+                        BackgroundColor="#dbca7f"
+                        Margin="15, -5, 15, 10"
+                        VerticalOptions="FillAndExpand"
+                        IsVisible="False">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid
+                                        Margin="5">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Label Text="{Binding Name}" Grid.Row="0" Grid.Column="0" />
+                                        <Label Text="{Binding Price, StringFormat='{0:C}'}" Grid.Row="0" Grid.Column="1" HorizontalOptions="End" />
+                                        <Label Text="{Binding Description}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" />
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+                <!-- Main Courses -->
+                <StackLayout
+                    x:Name="MainCourseBox"
+                    Spacing="0"
+                    Margin="5, 0"
+                    Padding="0">
+                    <Button
+                        Text="Main Courses"
+                        HorizontalOptions="FillAndExpand"
+                        HeightRequest="75"
+                        BackgroundColor="#ca973f"
+                        Clicked="MainCoursesButton_OnClicked"/>
+                    <ListView
+                        HasUnevenRows="True"
+                        x:Name="MainCoursesList"
+                        BackgroundColor="#dbca7f"
+                        Margin="15, -5, 15, 10"
+                        VerticalOptions="FillAndExpand"
+                        IsVisible="False">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid
+                                        Margin="5">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Label Text="{Binding Name}" Grid.Row="0" Grid.Column="0" />
+                                        <Label Text="{Binding Price, StringFormat='{0:C}'}" Grid.Row="0" Grid.Column="1" HorizontalOptions="End" />
+                                        <Label Text="{Binding Description}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" />
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+                <!-- Desserts -->
+                <StackLayout
+                    x:Name="DessertBox"
+                    Spacing="0"
+                    Margin="5, 0"
+                    Padding="0">
+                    <Button
+                        Text="Desserts"
+                        HorizontalOptions="FillAndExpand"
+                        HeightRequest="75"
+                        BackgroundColor="#ca973f"
+                        Clicked="DessertsButton_OnClicked"/>
+                    <ListView
+                        HasUnevenRows="True"
+                        x:Name="DessertList"
+                        BackgroundColor="#dbca7f"
+                            Margin="15, -5, 15, 10"
+                        IsVisible="False">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid
+                                        Margin="5">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Label Text="{Binding Name}" Grid.Row="0" Grid.Column="0" />
+                                        <Label Text="{Binding Price, StringFormat='{0:C}'}" Grid.Row="0" Grid.Column="1" HorizontalOptions="End" />
+                                        <Label Text="{Binding Description}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" />
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+                <!-- Drinks -->
+                <StackLayout
+                    x:Name="DrinkBox"
+                    Spacing="0"
+                    Margin="5, 0"
+                    Padding="0">
+                    <Button
+                        Text="Drinks"
+                        HorizontalOptions="FillAndExpand"
+                        HeightRequest="75"
+                        BackgroundColor="#ca973f"
+                        Clicked="DrinksButton_OnClicked"/>
+                    <ListView
+                        HasUnevenRows="True"
+                        x:Name="DrinkList"
+                        BackgroundColor="#dbca7f"
+                            Margin="15, -5, 15, 10"
+                        IsVisible="False">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid
+                                        Margin="5">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Label Text="{Binding Name}" Grid.Row="0" Grid.Column="0" />
+                                        <Label Text="{Binding Price, StringFormat='{0:C}'}" Grid.Row="0" Grid.Column="1" HorizontalOptions="End" />
+                                        <Label Text="{Binding Description}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" />
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
