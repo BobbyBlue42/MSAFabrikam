@@ -25,82 +25,12 @@ namespace Fabrikam
             InitializeComponent();
 
             PopulateLists_Async();
-
-            /*Appetisers = new ObservableCollection<Item>
-            {
-                new Item
-                {
-                    Name = "Caesar Salad",
-                    Description = "A fresh, crunchy salad containing leafy things.",
-                    Price = 3.29
-                },
-                new Item
-                {
-                    Name = "Spring Soup",
-                    Description = "A light soup filled with delightful spring vegetables.",
-                    Price = 4.79
-                },
-                new Item
-                {
-                    Name = "Caesar Salad",
-                    Description = "A fresh, crunchy salad containing leafy things.",
-                    Price = 3.29
-                },
-                new Item
-                {
-                    Name = "Spring Soup",
-                    Description = "A light soup filled with delightful spring vegetables.",
-                    Price = 4.79
-                },
-                new Item
-                {
-                    Name = "Caesar Salad",
-                    Description = "A fresh, crunchy salad containing leafy things.",
-                    Price = 3.29
-                },
-                new Item
-                {
-                    Name = "Spring Soup",
-                    Description = "A light soup filled with delightful spring vegetables.",
-                    Price = 4.79
-                },
-                new Item
-                {
-                    Name = "Caesar Salad",
-                    Description = "A fresh, crunchy salad containing leafy things.",
-                    Price = 3.29
-                },
-                new Item
-                {
-                    Name = "Spring Soup",
-                    Description = "A light soup filled with delightful spring vegetables.",
-                    Price = 4.79
-                },
-            };
-
-            MainCourses = new ObservableCollection<Item>
-            {
-                new Item
-                {
-                    Name = "Caesar Salad",
-                    Description = "A fresh, crunchy salad containing leafy things.",
-                    Price = 3.29
-                },
-                new Item
-                {
-                    Name = "Spring Soup",
-                    Description = "A light soup filled with delightful spring vegetables.",
-                    Price = 4.79
-                },
-            };
-
-            AppetiserList.ItemsSource = Appetisers;
-            MainCoursesList.ItemsSource = MainCourses;*/
         }
 
         async void PopulateLists_Async()
         {
             List<ItemModel> items = await AzureManager.AzureManagerInstance.GetItems();
+            System.Diagnostics.Debug.WriteLine(items.Count);
 
             Appetisers = new ObservableCollection<ItemModel>();
             MainCourses = new ObservableCollection<ItemModel>();
@@ -127,9 +57,13 @@ namespace Fabrikam
             }
 
             AppetiserList.ItemsSource = Appetisers;
+            System.Diagnostics.Debug.WriteLine(Appetisers.Count);
             MainCoursesList.ItemsSource = MainCourses;
+            System.Diagnostics.Debug.WriteLine(MainCourses.Count);
             DessertList.ItemsSource = Desserts;
+            System.Diagnostics.Debug.WriteLine(Desserts.Count);
             DrinkList.ItemsSource = Drinks;
+            System.Diagnostics.Debug.WriteLine(Drinks.Count);
         }
 
         private void AppetisersButton_OnClicked(object sender, EventArgs e)
