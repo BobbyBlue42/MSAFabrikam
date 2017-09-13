@@ -7,6 +7,6 @@
             BarTextColor="Black">
 
     <local:Menu />
-    <local:Favourites />
+    <local:FavouritesPage />
     <local:Directions />
 </TabbedPage>

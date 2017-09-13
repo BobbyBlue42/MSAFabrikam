@@ -42,8 +42,8 @@
     <Compile Include="Directions.xaml.cs">
       <DependentUpon>Directions.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Favourites.xaml.cs">
-      <DependentUpon>Favourites.xaml</DependentUpon>
+    <Compile Include="FavouritesPage.xaml.cs">
+      <DependentUpon>FavouritesPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -102,7 +102,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Favourites.xaml">
+    <EmbeddedResource Include="FavouritesPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

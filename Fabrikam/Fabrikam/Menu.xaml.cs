@@ -23,7 +23,11 @@ namespace Fabrikam
         public Menu()
         {
             InitializeComponent();
+        }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
             PopulateLists_Async();
         }
 
