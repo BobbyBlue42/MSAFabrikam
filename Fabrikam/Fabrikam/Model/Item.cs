@@ -17,5 +17,8 @@ namespace Fabrikam.Model
 
         [JsonProperty(PropertyName = "Price")]
         public double Price { get; set; }
+
+        [JsonProperty(PropertyName = "Type")]
+        public string Type { get; set; }
     }
 }
