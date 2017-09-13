@@ -8,5 +8,5 @@
 
     <local:Menu />
     <local:FavouritesPage />
-    <local:Directions />
+    <local:Distance />
 </TabbedPage>

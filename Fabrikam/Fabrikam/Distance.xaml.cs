@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace Fabrikam
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Directions : ContentPage
+    public partial class Distance : ContentPage
     {
-        public Directions()
+        public Distance()
         {
             InitializeComponent();
         }
