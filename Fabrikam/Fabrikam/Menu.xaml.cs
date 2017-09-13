@@ -1,4 +1,5 @@
 ﻿using Fabrikam.Model;
+using Microsoft.WindowsAzure.MobileServices;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -14,21 +15,18 @@ namespace Fabrikam
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Menu : ContentPage
     {
-        ObservableCollection<Item> Appetisers { get; set; }
-        ObservableCollection<Item> MainCourses { get; set; }
-        ObservableCollection<Item> Desserts { get; set; }
-        ObservableCollection<Item> Drinks { get; set; }
-
-        //bool AppetisersVisible { get; set; }
-        //bool MainCoursesVisible { get; set; }
-        //bool DessertsVisible { get; set; }
-        //bool DrinksVisible { get; set; }
+        ObservableCollection<ItemModel> Appetisers { get; set; }
+        ObservableCollection<ItemModel> MainCourses { get; set; }
+        ObservableCollection<ItemModel> Desserts { get; set; }
+        ObservableCollection<ItemModel> Drinks { get; set; }
 
         public Menu()
         {
             InitializeComponent();
 
-            Appetisers = new ObservableCollection<Item>
+            PopulateLists_Async();
+
+            /*Appetisers = new ObservableCollection<Item>
             {
                 new Item
                 {
@@ -97,7 +95,41 @@ namespace Fabrikam
             };
 
             AppetiserList.ItemsSource = Appetisers;
+            MainCoursesList.ItemsSource = MainCourses;*/
+        }
+
+        async void PopulateLists_Async()
+        {
+            List<ItemModel> items = await AzureManager.AzureManagerInstance.GetItems();
+
+            Appetisers = new ObservableCollection<ItemModel>();
+            MainCourses = new ObservableCollection<ItemModel>();
+            Desserts = new ObservableCollection<ItemModel>();
+            Drinks = new ObservableCollection<ItemModel>();
+
+            foreach (ItemModel item in items)
+            {
+                switch (item.Type)
+                {
+                    case "Appetiser":
+                        Appetisers.Add(item);
+                        break;
+                    case "Main Course":
+                        MainCourses.Add(item);
+                        break;
+                    case "Dessert":
+                        Desserts.Add(item);
+                        break;
+                    case "Drink":
+                        Drinks.Add(item);
+                        break;
+                }
+            }
+
+            AppetiserList.ItemsSource = Appetisers;
             MainCoursesList.ItemsSource = MainCourses;
+            DessertList.ItemsSource = Desserts;
+            DrinkList.ItemsSource = Drinks;
         }
 
         private void AppetisersButton_OnClicked(object sender, EventArgs e)

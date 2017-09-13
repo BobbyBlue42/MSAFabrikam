@@ -51,8 +51,8 @@
     <Compile Include="Menu.xaml.cs">
       <DependentUpon>Menu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\Favourite.cs" />
-    <Compile Include="Model\Item.cs" />
+    <Compile Include="Model\FavouriteModel.cs" />
+    <Compile Include="Model\ItemModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -12,14 +12,14 @@ namespace Fabrikam
     {
         private static AzureManager instance;
         private MobileServiceClient client;
-        private IMobileServiceTable<Item> itemsTable;
-        private IMobileServiceTable<Favourite> favouritesTable;
+        private IMobileServiceTable<ItemModel> itemsTable;
+        private IMobileServiceTable<FavouriteModel> favouritesTable;
 
         private AzureManager()
         {
             this.client = new MobileServiceClient("https://msafabrikam.azurewebsites.net");
-            this.itemsTable = this.client.GetTable<Item>();
-            this.favouritesTable = this.client.GetTable<Favourite>();
+            this.itemsTable = this.client.GetTable<ItemModel>();
+            this.favouritesTable = this.client.GetTable<FavouriteModel>();
         }
 
         public MobileServiceClient AzureClient
@@ -40,27 +40,27 @@ namespace Fabrikam
             }
         }
 
-        public async Task<List<Item>> GetItems()
+        public async Task<List<ItemModel>> GetItems()
         {
             return await this.itemsTable.ToListAsync();
         }
 
-        public async Task<List<Favourite>> GetFavourites()
+        public async Task<List<FavouriteModel>> GetFavourites()
         {
             return await this.favouritesTable.ToListAsync();
         }
 
-        public async Task PostFavouritesInformation(Favourite favourite)
+        public async Task PostFavouritesInformation(FavouriteModel favourite)
         {
             await this.favouritesTable.InsertAsync(favourite);
         }
 
-        public async Task UpdateFavouritesInformation(Favourite favourite)
+        public async Task UpdateFavouritesInformation(FavouriteModel favourite)
         {
             await this.favouritesTable.UpdateAsync(favourite);
         }
 
-        public async Task DeleteFavouritesInformation(Favourite favourite)
+        public async Task DeleteFavouritesInformation(FavouriteModel favourite)
         {
             await this.favouritesTable.DeleteAsync(favourite);
         }

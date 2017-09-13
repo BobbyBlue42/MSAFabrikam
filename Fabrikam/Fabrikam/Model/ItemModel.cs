@@ -7,8 +7,11 @@ using System.Threading.Tasks;
 
 namespace Fabrikam.Model
 {
-    class Item
+    class ItemModel
     {
+        [JsonProperty(PropertyName = "Id")]
+        public string ID { get; set; }
+
         [JsonProperty(PropertyName = "Name")]
         public string Name { get; set; }
 
